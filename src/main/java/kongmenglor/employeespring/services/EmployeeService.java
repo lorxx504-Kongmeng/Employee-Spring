@@ -19,7 +19,7 @@ public class EmployeeService {
         this.employeeRepo = employeeRepo;
     }
     public EmployeeEntity addEmployee(EmployeeEntity employee) {
-        if (employee.getEmail().isEmpty() || employee.getName().isEmpty()) {
+        if (employee.getEmail().isEmpty() || employee.getName().isEmpty() || employee.getPassword().isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         return employeeRepo.save(employee);
