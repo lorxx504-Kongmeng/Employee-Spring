@@ -1,4 +1,4 @@
-package kongmenglor.employeespring;
+package kongmenglor.employeespring.entities;
 
 import javax.persistence.*;
 
@@ -9,7 +9,9 @@ public class EmployeeEntity {
     @Column(nullable=false, updatable = false)
     private Long id;
     private String name;
+    @Column(nullable = false, unique = true)
     private String email;
+    private String password;
     private String jobTitle;
     private Long phone;
     private String imageUrl;
@@ -23,6 +25,14 @@ public class EmployeeEntity {
         this.phone = phone;
         this.imageUrl = imageUrl;
         this.code = code;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
