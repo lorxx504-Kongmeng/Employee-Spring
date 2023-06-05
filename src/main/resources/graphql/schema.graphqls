@@ -1,6 +1,11 @@
 type Query {
-    findAllEmployees: [EmployeeEntity]
+#    findAllEmployees: [EmployeeEntity]
+    findById(id: Float): EmployeeEntity
 }
+
+#input EmployeeId {
+#    id: Float
+#}
 
 type EmployeeEntity {
     id: ID!
@@ -15,9 +20,9 @@ type EmployeeEntity {
 
 type Mutation {
     addEmployee(employee: Employee): EmployeeEntity
+#    deleteEmployeeById(id: Float): Boolean
 }
 input Employee {
-    id: ID
     name: String!
     email: String!
     password: String!
