@@ -2,12 +2,7 @@ type Query {
     findAllEmployees: [EmployeeEntity]
 }
 
-type Mutation
-{
-    addEmployee(employee: EmployeeInput): EmployeeEntity
-}
-
-input EmployeeInput {
+type EmployeeEntity {
     id: ID!
     name: String
     email: String
@@ -18,11 +13,14 @@ input EmployeeInput {
     code: String
 }
 
-type EmployeeEntity {
-    id: ID!
-    name: String
-    email: String
-    password: String
+type Mutation {
+    addEmployee(employee: Employee): EmployeeEntity
+}
+input Employee {
+    id: ID
+    name: String!
+    email: String!
+    password: String!
     jobTitle: String
     phone: Float
     imageUrl: String

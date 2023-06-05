@@ -1,6 +1,7 @@
 package kongmenglor.employeespring.controllers;
 import kongmenglor.employeespring.entities.EmployeeEntity;
 import kongmenglor.employeespring.services.EmployeeService;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class EmployeeGQLController {
     }
 
     @MutationMapping
-    public EmployeeEntity addEmployee(EmployeeEntity employee) {
+    public EmployeeEntity addEmployee(@Argument EmployeeEntity employee) {
         return this.employeeService.addEmployee(employee);
     }
 
