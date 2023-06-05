@@ -2,6 +2,22 @@ type Query {
     findAllEmployees: [EmployeeEntity]
 }
 
+type Mutation
+{
+    addEmployee(employee: EmployeeInput): EmployeeEntity
+}
+
+input EmployeeInput {
+    id: ID!
+    name: String
+    email: String
+    password: String
+    jobTitle: String
+    phone: Float
+    imageUrl: String
+    code: String
+}
+
 type EmployeeEntity {
     id: ID!
     name: String

@@ -1,12 +1,11 @@
 package kongmenglor.employeespring.controllers;
 import kongmenglor.employeespring.entities.EmployeeEntity;
 import kongmenglor.employeespring.services.EmployeeService;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -24,5 +23,9 @@ public class EmployeeGQLController {
         return this.employeeService.findAll();
     }
 
+    @MutationMapping
+    public EmployeeEntity addEmployee(EmployeeEntity employee) {
+        return this.employeeService.addEmployee(employee);
+    }
 
 }
