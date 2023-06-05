@@ -4,6 +4,7 @@ package kongmenglor.employeespring.controllers;
 import kongmenglor.employeespring.dtos.UpdateEmployeeDTO;
 import kongmenglor.employeespring.entities.EmployeeEntity;
 import kongmenglor.employeespring.services.EmployeeService;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,10 @@ public class EmployeeController {
         List<EmployeeEntity> employees = this.employeeService.findAll();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
+//    @QueryMapping("/findAllEmployees")
+//    public List<EmployeeEntity> findAllEmployees() {
+//        return this.employeeService.findAll();
+//    }
     @PostMapping("/add")
     public ResponseEntity<EmployeeEntity> addEmployee(@RequestBody EmployeeEntity employee) {
         EmployeeEntity new_Employee = this.employeeService.addEmployee(employee);

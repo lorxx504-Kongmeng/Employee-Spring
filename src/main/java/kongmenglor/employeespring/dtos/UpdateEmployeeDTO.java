@@ -11,6 +11,5 @@ public class UpdateEmployeeDTO {
     public String jobTitle;
     public Long phone;
     public String imageUrl;
-    public String code;
 
 }

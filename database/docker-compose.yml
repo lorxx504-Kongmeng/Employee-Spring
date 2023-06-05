@@ -8,4 +8,4 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: postgres
     volumes:
-      - ./database:/var/lib/postgresql/db
+      - ./:/var/lib/postgresql/db
