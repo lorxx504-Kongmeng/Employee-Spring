@@ -1,5 +1,4 @@
 package kongmenglor.employeespring.entities;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,14 +13,14 @@ public class EmployeeEntity {
     private String name;
     @Column(nullable = false, unique = true)
     private String email;
-    private String password;
+//    private String password;
     private String jobTitle;
     private Long phone;
     private String imageUrl;
-    private String code;
+    private Long code;
 
     public EmployeeEntity() {}
-    public EmployeeEntity(String name, String email, String jobTitle, Long phone, String imageUrl, String code) {
+    public EmployeeEntity(String name, String email, String jobTitle, Long phone, String imageUrl, Long code) {
         this.name = name;
         this.email = email;
         this.jobTitle = jobTitle;
@@ -30,15 +29,15 @@ public class EmployeeEntity {
         this.code = code;
     }
 
-    @JsonIgnore
-    public String getPassword() {
-        return password;
-    }
+//    @JsonIgnore
+//    public String getPassword() {
+//        return password;
+//    }
 
-    @JsonProperty
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    @JsonProperty
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public Long getId() {
         return id;
@@ -84,11 +83,11 @@ public class EmployeeEntity {
         this.imageUrl = imageUrl;
     }
 
-    public String getCode() {
+    public Long getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Long code) {
         this.code = code;
     }
 }

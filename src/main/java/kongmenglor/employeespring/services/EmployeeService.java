@@ -34,8 +34,12 @@ public class EmployeeService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         EmployeeEntity employee = employee_Opt.get();
+
         if (!employeeDTO.email.isEmpty()) {
             employee.setEmail(employeeDTO.email);
+        }
+        if (!employeeDTO.name.isEmpty()) {
+            employee.setName(employeeDTO.name);
         }
         if (!employeeDTO.password.isEmpty()) {
             employee.setPassword(employeeDTO.jobTitle);
@@ -54,7 +58,11 @@ public class EmployeeService {
     public EmployeeEntity findById(Long id) {
         return this.employeeRepo.findEmployeeById(id).get();
     }
-    public void deleteEmployee(Long id) {
-        this.employeeRepo.deleteEmployeeById(id);
+    public List<EmployeeEntity> deleteEmployee(Long id) {
+        if (this.employeeRepo.findEmployeeById(id).isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        this.employeeRepo.deleteById(id);
+        return this.employeeRepo.findAll();
     }
 }

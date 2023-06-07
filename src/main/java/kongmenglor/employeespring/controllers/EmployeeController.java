@@ -40,9 +40,8 @@ public class EmployeeController {
         return new ResponseEntity<>(update_Employee,HttpStatus.OK);
     }
     @DeleteMapping("/delete")
-    public ResponseEntity<?> deleteEmployee(@RequestParam Long id) {
-        this.employeeService.deleteEmployee(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<List<EmployeeEntity>> deleteEmployee(@RequestParam Long id) {
+        return new ResponseEntity<>(this.employeeService.deleteEmployee(id),HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
     public ResponseEntity<EmployeeEntity> findEmployeeById(@PathVariable("id") Long id) {
