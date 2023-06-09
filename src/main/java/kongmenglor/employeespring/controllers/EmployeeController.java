@@ -30,9 +30,8 @@ public class EmployeeController {
 //        return this.employeeService.findAll();
 //    }
     @PostMapping("/add")
-    public ResponseEntity<EmployeeEntity> addEmployee(@RequestBody EmployeeEntity employee) {
-        EmployeeEntity new_Employee = this.employeeService.addEmployee(employee);
-        return new ResponseEntity<>(new_Employee,HttpStatus.CREATED);
+    public ResponseEntity<List<EmployeeEntity>> addEmployee(@RequestBody EmployeeEntity employee) {
+        return new ResponseEntity<>(this.employeeService.addEmployee(employee),HttpStatus.CREATED);
     }
     @PutMapping("/update")
     public ResponseEntity<EmployeeEntity> updateEmployee(@RequestBody UpdateEmployeeDTO employeeDTO) {

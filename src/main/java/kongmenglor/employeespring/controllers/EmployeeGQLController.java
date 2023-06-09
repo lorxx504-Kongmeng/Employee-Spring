@@ -22,10 +22,10 @@ public class EmployeeGQLController {
         return this.employeeService.findAll();
     }
 
-    @MutationMapping
-    public EmployeeEntity addEmployee(@Argument EmployeeEntity employee) {
-        return this.employeeService.addEmployee(employee);
-    }
+//    @MutationMapping
+//    public EmployeeEntity addEmployee(@Argument EmployeeEntity employee) {
+//        return this.employeeService.addEmployee(employee);
+//    }
     @QueryMapping(value = "findById")
     public EmployeeEntity findBy(@Argument Long id) {
         return this.employeeService.findById(id);

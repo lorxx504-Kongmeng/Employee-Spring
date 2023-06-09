@@ -18,11 +18,12 @@ public class EmployeeService {
     public EmployeeService(EmployeeRepo employeeRepo) {
         this.employeeRepo = employeeRepo;
     }
-    public EmployeeEntity addEmployee(EmployeeEntity employee) {
-        if (employee.getEmail().isEmpty() || employee.getName().isEmpty() || employee.getPassword().isEmpty()) {
+    public List<EmployeeEntity> addEmployee(EmployeeEntity employee) {
+        if (employee.getEmail().isEmpty() || employee.getName().isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        return employeeRepo.save(employee);
+        employeeRepo.save(employee);
+        return this.employeeRepo.findAll();
     }
     public List<EmployeeEntity> findAll() {
         return this.employeeRepo.findAll();
@@ -41,9 +42,9 @@ public class EmployeeService {
         if (!employeeDTO.name.isEmpty()) {
             employee.setName(employeeDTO.name);
         }
-        if (!employeeDTO.password.isEmpty()) {
-            employee.setPassword(employeeDTO.jobTitle);
-        }
+//        if (!employeeDTO.password.isEmpty()) {
+//            employee.setPassword(employeeDTO.jobTitle);
+//        }
         if (!employeeDTO.jobTitle.isEmpty()) {
             employee.setJobTitle(employeeDTO.jobTitle);
         }
